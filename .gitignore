@@ -1,0 +1,63 @@
+# Entorno Virtual
+.venv/
+env/
+ENV/
+venv/
+VENV/
+
+# Archivos de configuración y dependencias
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+instance/
+.pytest_cache/
+*.pyc
+
+# Configuración del IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Configuración de PyCharm
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Directorio de Migraciones
+migrations/
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+
+# Archivos de Log
+*.log
+
+# Caches de jupyter notebooks
+.ipynb_checkpoints
+
+# Archivos de almacenamiento
+*.pid
+*.swp
+*.swo
+
+# Archivos de paquetes y distribución
+*.egg-info/
+.dist/
+.wheel/
+.build/
+
+# Otros archivos que no deben estar en el control de versiones
+*.bak
+*.old
+*.orig
+*.rej
+.env
