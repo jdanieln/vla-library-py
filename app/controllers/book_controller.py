@@ -16,7 +16,7 @@ def create_book_blueprint(book_service: BookService):
             return jsonify([book.serialize()])
         return jsonify({'message': 'Book not found'}), 404
 
-    @book_blueprint.route('/book/<int:book_id>', methods=['POST'])
+    @book_blueprint.route('/book', methods=['POST'])
     def create_book():
         data=request.get_json()
         book_service.create_book(data)

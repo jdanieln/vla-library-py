@@ -11,7 +11,7 @@ class BookService:
         return self.book_repository.get_by_id(book_id)
     
     def create_book(self, data):
-        new_book = Book(name=data['name'])
+        new_book = Book(title=data['title'], writer_id=data['writer_id'])
         self.book_repository.create(new_book)
 
     def delete_book(self, book_id):

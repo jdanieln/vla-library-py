@@ -19,7 +19,7 @@ def create_writer_blueprint(writer_service: WriterService):
     @writer_blueprint.route('/writer', methods=['POST'])
     def create_writer():
        data = request.get_json()
-       writer_service.create(data)
+       writer_service.create_writer(data)
        return jsonify({ 'message': 'Writer created successfully' }), 201 
 
     @writer_blueprint.route('/writer/<int:writer_id>', methods=['DELETE'])

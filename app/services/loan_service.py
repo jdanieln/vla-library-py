@@ -11,7 +11,7 @@ class LoanService:
         return self.loan_repository.get_by_id(loan_id)
     
     def create_loan(self, data):
-        new_loan = Loan(name=data['name'])
+        new_loan = Loan(book_id=data['book_id'], member_id=data['member_id'], loan_date=data['loan_date'], return_date=data['return_date'])
         self.loan_repository.create(new_loan)
     
     def delete_loan(self, loan_id):
