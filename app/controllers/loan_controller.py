@@ -1,10 +1,12 @@
 from flask import Blueprint, request, jsonify
 from ..services.loan_service import LoanService
+from flask_jwt_extended import jwt_required
 
 def create_loan_blueprint(loan_service: LoanService):
     loan_blueprint= Blueprint('loan', __name__)
 
     @loan_blueprint.route('/loans', methods=['GET'])
+    @jwt_required()
     def get_all_loans():
         loans = loan_service.get_all_loans()
         return jsonify([loan.serialize() for loan in loans])

@@ -15,3 +15,6 @@ class Config:
         f"?driver={DRIVER}&Encrypt=yes&TrustServerCertificate=yes"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    JWT_KEY = os.getenv('JWT_SECRET_KEY')
