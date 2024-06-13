@@ -1,0 +1,86 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API de la Biblioteca",
+    "version": "1.0.0",
+    "title": "Biblioteca API"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "auth",
+      "description": "Operaciones de autenticación"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Registro de usuario",
+        "description": "Registrar un nuevo usuario",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Datos del usuario",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Usuario registrado exitosamente"
+          },
+          "409": {
+            "description": "El usuario ya existe"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Inicio de sesión",
+        "description": "Iniciar sesión en la aplicación",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Credenciales de usuario",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inicio de sesión exitoso"
+          },
+          "401": {
+            "description": "Credenciales inválidas"
+          }
+        }
+      }
+    }
+  }
+}

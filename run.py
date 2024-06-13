@@ -13,7 +13,7 @@ from app.services.writer_service import WriterService
 from app.services.member_service import MemberService
 from app.services.loan_service import LoanService
 from flask_jwt_extended import JWTManager
-
+from flask_swagger_ui import get_swaggerui_blueprint
 
 
 from flask_migrate import Migrate
@@ -40,8 +40,18 @@ app.register_blueprint(create_loan_blueprint(loan_service), url_prefix='/api')
 app.register_blueprint(create_member_blueprint(member_service), url_prefix='/api')
 app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
-migrate = Migrate(app, db)
+SWAGGER_URL = '/api/docs'
+API_URL = '/static/swagger.json'
 
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config = {
+        'app_name': 'Biblioteca API VLA'
+    }
+)
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+migrate = Migrate(app, db)
 
 if __name__ == '__main__':
     app.run()
